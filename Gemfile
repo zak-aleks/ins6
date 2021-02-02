@@ -25,6 +25,8 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 gem 'mini_racer'
 gem 'font-awesome-rails'
+gem 'carrierwave', '~> 2.0'
+gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
