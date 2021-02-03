@@ -9,7 +9,7 @@ class PostsController < ApplicationController
       if @post.save
         redirect_to profile_path, flash[:notice] = "Post successfully created"
       else
-        render :new, flash: {alert: "Some errors"}
+        redirect_to new_post_path, flash: {alert: "Some errors"}
 
       end
   end
