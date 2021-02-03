@@ -12,6 +12,7 @@ else
 render :new, flash: {alert: "Some errors"}
 
 end
+
 end
 
 def show
@@ -20,6 +21,6 @@ end
 private
 
 def post_params
-params.require(:post).permit(:image, :image_cache)
+params.require(:post).permit(:image, :image_cache, :description,:user_id)
 end
 end

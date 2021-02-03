@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @post = Post.all
+  
   end
 
 
