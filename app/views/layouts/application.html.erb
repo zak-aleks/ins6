@@ -29,7 +29,7 @@
           <a><i class="fa fa-heart"></i></a>
 
           <% if user_signed_in? %>
-          <a href="<%= %>">
+          <a href="<%= user_path(current_user) %>">
             <i class="fa fa-user"></i>
           </a>
           <a href="<%= destroy_user_session_path%>" data-method="delete">
