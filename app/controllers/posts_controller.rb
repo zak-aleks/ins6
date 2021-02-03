@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def create
       @post = Post.new(post_params)
       if @post.save
-        redirect_to dash_path, flash: {success: "Post was created"}
+        redirect_to posts_path, flash: {success: "Post was created"}
       else
         render :new, flash: {alert: "Some errors"}
 
@@ -15,6 +15,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @posts = Post.all
   end
 
   private
