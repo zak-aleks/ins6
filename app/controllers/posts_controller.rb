@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def create
       @post = Post.new(post_params)
       if @post.save
-        redirect_to profile_path, flash: {success: "Post was created"}
+        redirect_to profile_path, flash[:notice] = "Post successfully created"
       else
         render :new, flash: {alert: "Some errors"}
 
@@ -21,6 +21,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :image_cache)
+    params.require(:post).permit(:image, :image_cache, :description)
   end
 end

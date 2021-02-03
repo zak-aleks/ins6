@@ -4,6 +4,7 @@ Rails.application.routes.draw do
    root to: 'home#index'
    get "/posts" => "posts#show"
    get "/profile" => "users#index"
+    resources :users, only: [:show, :edit, :update]
    resources :posts, only: [:new, :show, :create]
-   resources :users, only: [:show]
+
 end

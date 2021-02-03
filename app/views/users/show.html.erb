@@ -8,17 +8,20 @@
 
     <div class="col-md-8 basic-info">
       <div class="user-wrapper">
-        <h2 class="username"><%= current_user.username %> </h2>
-        <a class="edit-profile">
+        <h2 class="username"><%= current_user.username %></h2>
+        <a class="edit-profile" href="<%= edit_user_path(current_user) %>">
           <button>Edit Profile</button>
         </a>
       </div>
       <ul class="posts">
-        <li><span>12</span> posts</li>
+        <li><span><%= current_user.posts.count %>"></span> posts</li>
         <li><span>12M</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
-      <h2 class="name">zak aleks</h2>
+      <h2 class="name"><%= current_user.first_name %></h2>
+        <h2 class="name"><%= current_user.last_name %></h2>
+
+</div>
 
     </div>
   </div>
