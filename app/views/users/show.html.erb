@@ -16,34 +16,24 @@
       <ul class="posts">
         <li><span><%= current_user.posts.count %></span> posts</li>
         <li><span>12M</span> followers</li>
-        <li><span>345</span> following</li>
+        <li><span>34</span> following</li>
+        <h2 class="name"><%= current_user.first_name + " " + current_user.last_name %></h2>
       </ul>
-      <h2 class="name"><%= current_user.first_name %></h2>
-        <h2 class="name"><%= current_user.last_name %></h2>
-
-</div>
-
     </div>
   </div>
-</div>
-
 
 <div class="user-tabs">
-  <a class="tab active" href="">
-    <i class="fa fa-th"></i>
-    POSTS
-  </a>
-
+  <a class="tab active" href=""><i class="fa fa-th"></i>POSTS</a>
 </div>
 
 
 <div class="user-images">
-
   <% @posts.each do |post|%>
     <% if post.image_url %>
     <div class="wrapper">
-      <%= image_tag post.image_url %>
+    <%= image_tag post.image_url %>
     </div>
   <% end %>
   <% end %>
+</div>
 </div>
