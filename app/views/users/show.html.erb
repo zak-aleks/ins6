@@ -31,7 +31,9 @@
   <% @posts.each do |post|%>
     <% if post.image_url %>
     <div class="wrapper">
+       <%=link_to post_path(post) do %>
     <%= image_tag post.image_url %>
+      <% end %>
     </div>
   <% end %>
   <% end %>
