@@ -14,7 +14,7 @@
         </a>
       </div>
       <ul class="posts">
-        <li><span><%= current_user.posts.count %>"></span> posts</li>
+        <li><span><%= current_user.posts.count %></span> posts</li>
         <li><span>12M</span> followers</li>
         <li><span>345</span> following</li>
       </ul>
@@ -38,13 +38,12 @@
 
 
 <div class="user-images">
-<div class="wrapper">
-  <img src="https://lh3.googleusercontent.com/proxy/YVbmPRvRtnF7JrsiRd9piWmXhpnZ6zBbyfuAwmEB0Tyxn8M6fMRbxgC350CvNTFiH8IDUDg0Z9Jg1tzgu9Zv2s3Vfepc7OELkuHOPKR01tdcnZr8PqvaLvWJ-VBPhuPX1sdC-ikiGsAMOFWt41-mj3dVlzJ4OPVPaGMKN9Q5RzhX4OM0KWPR9ZJjD7Fhl36KNCXyDn0qLrMfqgGZN8dY_hOX5HRrVnH3HHkAw_kX6FcdGv-xvnFl">
-</div>
-<div class="wrapper">
-  <img src="https://lh3.googleusercontent.com/proxy/YVbmPRvRtnF7JrsiRd9piWmXhpnZ6zBbyfuAwmEB0Tyxn8M6fMRbxgC350CvNTFiH8IDUDg0Z9Jg1tzgu9Zv2s3Vfepc7OELkuHOPKR01tdcnZr8PqvaLvWJ-VBPhuPX1sdC-ikiGsAMOFWt41-mj3dVlzJ4OPVPaGMKN9Q5RzhX4OM0KWPR9ZJjD7Fhl36KNCXyDn0qLrMfqgGZN8dY_hOX5HRrVnH3HHkAw_kX6FcdGv-xvnFl">
-</div>
-<div class="wrapper">
-  <img src="https://st2.depositphotos.com/1064024/10769/i/600/depositphotos_107694484-stock-photo-little-prince-illustration.jpg">
-</div>
+
+  <% @posts.each do |post|%>
+    <% if post.image_url %>
+    <div class="wrapper">
+      <%= image_tag post.image_url %>
+    </div>
+  <% end %>
+  <% end %>
 </div>
