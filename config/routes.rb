@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   get 'home/index'
    root to: 'home#index'
    get "/posts" => "posts#show"
-   get "/profile" => "users#index"
-
+   get "posts/new" => "posts#new"
+   post "follow/user" => "users#follow_user", as: :follow_user
 
    resources :users, only: [:show, :edit, :update]
-   resources :posts, only: [:new, :show, :create, :show] do
+   resources :posts, only: [:new, :create, :show] do
      resources :likes
    end
 

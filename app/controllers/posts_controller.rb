@@ -16,10 +16,12 @@ before_action :authenticate_user!
         if @post.save
           redirect_to current_user, flash: {success: "Post was created"}
         else
-          render :new, flash: {alert: "Some errors"}
+
+          render :new, flash: {alert: "Image can't be blank"}
         end
   end
 
+  
 
 private
 

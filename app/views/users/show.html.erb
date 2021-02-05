@@ -11,9 +11,10 @@
     <div class="col-md-8 basic-info">
       <div class="user-wrapper">
         <h2 class="username"><%= @user.username %></h2>
-        <a class="edit-profile" href="<%= edit_user_path(current_user) %>">
-          <button>Edit Profile</button>
-        </a>
+        <div class = "text-center">
+        <%= link_to "Edit profile",  edit_user_path(current_user), class: "btn btn-secondary btn-sm"  if can_edit_profile?(@user.id) %>
+        </div>
+
       </div>
       <ul class="posts">
         <li><span><%= @user.posts.count %></span> posts</li>
@@ -21,7 +22,21 @@
         <li><span>34</span> following</li>
         <h2 class="name"><%= @user.first_name + " " + @user.last_name %></h2>
       </ul>
+
+      <div class="col-sm-9 col-lg-10">
+        <%= form_tag follow_user_path, method: :post, class: "float-right" do %>
+        <%= hidden_tag :follow_id %>
+        <%= submit_tag "Follow", class: "btn btn-info" %>
+        <% end %>
+      </div>
+
+
+
+
+
+
     </div>
+
   </div>
 
 <div class="user-tabs">

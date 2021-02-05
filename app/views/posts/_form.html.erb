@@ -19,3 +19,17 @@
     </div>
 
 <% end %>
+
+
+
+<% if @post.errors.any? %>
+<div id="error_explanation">
+  <h2><% pluralize(@post.errors.count, "Error") %>
+  </h2>
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+  <li>  <%= message %> </li>
+  <% end %>
+</ul>
+</div>
+<% end %>

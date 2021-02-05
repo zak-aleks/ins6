@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     end
 
 
+    def follow_user
+      user_id = params[:follow_id]
+    end
+
   private
 
     def user_params
