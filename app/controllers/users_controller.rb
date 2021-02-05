@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show]
+
 
     def index
     @posts = Post.all
@@ -22,9 +22,6 @@ class UsersController < ApplicationController
     redirect_to current_user
     end
 
-    def set_user
-      @user = User.find_by_id(params[:id])
-    end
 
   private
 
