@@ -2,7 +2,9 @@
   <div class="profile row">
     <div class="col-md-4 avatar">
       <div class="wrapper">
-        <img src="https://sun2.6789.userapi.com/s/v1/if2/S--vG50MaJ-wpl8BX4g-aMmaRBLhCFKU0vSRU8r2-5NQk-PeSJqbhX-C4vg4cpwXp8dL1waPTVUi7xV-ZbNt8Zlu.jpg?size=200x0&quality=96&crop=150,442,1524,1524&ava=1">
+          <% if @user.image_url %>
+        <%= image_tag @user.image_url %>
+        <% end %>
       </div>
     </div>
 
