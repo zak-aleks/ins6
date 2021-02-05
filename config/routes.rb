@@ -5,7 +5,10 @@ Rails.application.routes.draw do
    get "/posts" => "posts#show"
    get "/profile" => "users#index"
 
+
    resources :users, only: [:show, :edit, :update]
-   resources :posts, only: [:new, :show, :create, :show]
+   resources :posts, only: [:new, :show, :create, :show] do
+     resources :likes
+   end
 
 end

@@ -1,0 +1,34 @@
+
+
+
+<div class="posts">
+  <section class="post">
+    <div class="user">
+      <div class="avatar">
+      <%= image_tag @post.user.image.url if @post.user.image.url %>
+      </div>
+
+      <div class="username">
+      <%= link_to @post.user.username, user_path(@post.user_id)%>
+      </div>
+
+    </div>
+
+    <%= image_tag @post.image_url, class: 'main-image' %>
+    <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+
+    <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+    <% if pre_like %>
+      <%= button_to 'Unlike', post_like_path(@post, pre_like), method: :delete %>
+    <% else %>
+      <%= button_to 'Like', post_likes_path(@post), method: :post %>
+    <% end %>
+
+
+   <div class="description">
+<%= link_to @post.user.username, user_path(@post.user_id)%>
+
+    <p>  <%= @post.description %>
+    </p></div>
+  </section>
+</div>

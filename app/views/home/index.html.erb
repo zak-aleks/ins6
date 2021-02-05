@@ -1,22 +1,30 @@
+
 <div class="posts">
   <% @posts.each do |post| %>
   <% if post.image_url %>
   <section class="post">
     <div class="user">
       <div class="avatar">
-
       <%= image_tag post.user.image.url if post.user.image.url %>
-
       </div>
-      <div class="username">
 
+      <div class="username">
       <%= link_to post.user.username, user_path(post.user_id)%>
       </div>
+
     </div>
-    <%= image_tag post.image_url, class: 'main-image' %>
+    <%=link_to post_path(post) do %>
+ <%= image_tag post.image_url, class: 'main-image' %>
+   <% end %>
+  
+
+    <div class="post-actions">
+      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+    </div>
 
     <div class="description">
-      <p><strong><%= post.total_likes %> likes<strong/><p/>
+<%= link_to post.user.username, user_path(post.user_id)%>
+
       <%= post.description %>
     </div>
   </section>
