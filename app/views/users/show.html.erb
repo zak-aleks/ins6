@@ -18,19 +18,27 @@
       </div>
       <ul class="posts">
         <li><span><%= @user.posts.count %></span> posts</li>
-        <li><span>12M</span> followers</li>
-        <li><span>34</span> following</li>
+        <li><span><%= @user.followers.count %></span> <%= link_to 'Followers', user_follows_path(@user) %></li>
+        <li><span><%= @user.followees.count %></span> <%= link_to 'Following', user_follow_path(@user) %></li>
         <h2 class="name"><%= @user.first_name + " " + @user.last_name %></h2>
       </ul>
 
-      <div class="col-sm-9 col-lg-10">
-        <%= form_tag follow_user_path, method: :post, class: "float-right" do %>
-        <%= hidden_tag :follow_id %>
-        <%= submit_tag "Follow", class: "btn btn-info" %>
-        <% end %>
-      </div>
 
 
+      <section id="all-links">
+          <% if @user.id == current_user.id %>
+              <%= link_to "MyPage", current_user %>
+          <% elsif current_user.followees.include?(@user) %>
+              <h5><%= button_to "Unfollow", unfollow_user_path, method: "POST" %></h5>
+          <% else %>
+              <h5><%= button_to "Follow", follow_user_path, method: "POST"  %></h5>
+          <% end%>
+
+
+          <br>
+
+
+      </section>
 
 
 

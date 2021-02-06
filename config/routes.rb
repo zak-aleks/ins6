@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  get 'home/index'
+
+   devise_for :users
+   get 'home/index'
    root to: 'home#index'
    get "/posts" => "posts#show"
    get "posts/new" => "posts#new"
-   post "follow/user" => "users#follow_user", as: :follow_user
-
-   resources :users, only: [:show, :edit, :update]
-   resources :posts, only: [:new, :create, :show] do
-     resources :likes
+   post '/users/:id/follow', to: "users#follow", as: "follow_user"
+   post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
+   resources :users, only: [:show, :edit, :update] do
+     resources :follows
    end
-
+   resources :posts, only: [:new, :create, :show] do
+   resources :likes
+   end
+   get '/followees' => 'follows#show'
 end
