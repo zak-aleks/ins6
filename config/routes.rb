@@ -6,13 +6,14 @@ Rails.application.routes.draw do
    root to: 'home#index'
    get "/posts" => "posts#show"
    get "posts/new" => "posts#new"
+   get '/followees' => 'follows#show'
    post '/users/:id/follow', to: "users#follow", as: "follow_user"
    post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
    resources :users, only: [:show, :edit, :update] do
      resources :follows
    end
-   resources :posts, only: [:new, :create, :show] do
-   resources :likes
+     resources :posts, only: [:new, :create, :show] do
+     resources :likes
    end
-   get '/followees' => 'follows#show'
+
 end
