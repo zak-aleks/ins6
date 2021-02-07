@@ -1,21 +1,13 @@
-<div class="posts">
-  <% @posts.each do |post| %>
-  <% if post.image_url %>
-  <section class="post">
-    <div class="user">
-      <div class="avatar">
-        <%= image_tag @user.image_url if @user.image_url %>
-      </div>
-      <div class="username">
-        <%= post.user.username %>
-      </div>
-    </div>
-    <%= image_tag post.image_url, class: 'main-image' %>
-    
-    <div class="description">
-      <%= post.description %>
-    </div>
-  </section>
-  <% end %>
-  <% end %>
-</div>
+<% render "posts/comments", post: @post %>
+
+    <div class="comment-box">
+      <%= form_for @comment, html: { multipart: true } do |f|%>
+      <%= f.hidden_field :post_id, value: post.id %>
+      <div class="input-group">
+        <%= f.text_field :comment, placeholder: "Add comment...", class: "form-control post-comment"%>
+        <div class ="input_group-append">
+          <%= f.submit "Add", class: "btn btn-success float-right" %>
+          <% end %>
+          </div>
+          </div>
+          </div>

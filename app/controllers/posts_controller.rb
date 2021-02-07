@@ -5,6 +5,7 @@ before_action :authenticate_user!
   end
 
 
+
   def show
     @post = Post.find(params[:id])
   end
@@ -21,7 +22,7 @@ before_action :authenticate_user!
         end
   end
 
-  
+
 
 private
 

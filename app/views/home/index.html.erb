@@ -16,7 +16,7 @@
     <%=link_to post_path(post) do %>
  <%= image_tag post.image_url, class: 'main-image' %>
    <% end %>
-  
+
 
     <div class="post-actions">
       <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
@@ -26,7 +26,31 @@
 <%= link_to post.user.username, user_path(post.user_id)%>
 
       <%= post.description %>
+
     </div>
+<div class ="comment">
+  <h3>Comments:</h3>
+    <% post.comments.each do |comment|%>
+  <p>  <strong><%= comment.user.username  %></strong>
+    <%= comment.comment %></p>
+    <% end %>
+
+        <div class="comment-box">
+          <%= form_for Comment.new, html: { multipart: true } do |f|%>
+
+          <%= f.hidden_field :post_id, value: post.id %>
+
+          <div class="input-group">
+            <%= f.text_field :comment, placeholder: "Add comment...", class: "form-control post-comment"%>
+            <div class ="input_group-append">
+              <%= f.submit "Add", class: "btn btn-success float-right" %>
+              <% end %>
+              </div>
+              </div>
+              </div>
+</div>
+
+
   </section>
   <% end %>
   <% end %>

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
    get '/followees' => 'follows#show'
    post '/users/:id/follow', to: "users#follow", as: "follow_user"
    post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
+   resources :comments, only: [:create]
    resources :users, only: [:show, :edit, :update] do
      resources :follows
    end

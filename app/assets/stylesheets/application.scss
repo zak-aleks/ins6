@@ -2,6 +2,7 @@
 @import "font-awesome";
 @import "users";
 
+
 .container{
   max-width: 1000px;
 }
@@ -65,4 +66,7 @@
       border-radius: 4%;
     }
   }
+}
+.comment{
+  margin-left: 20px;
 }
