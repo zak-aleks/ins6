@@ -1,13 +1,4 @@
-<% render "posts/comments", post: @post %>
-
-    <div class="comment-box">
-      <%= form_for @comment, html: { multipart: true } do |f|%>
-      <%= f.hidden_field :post_id, value: post.id %>
-      <div class="input-group">
-        <%= f.text_field :comment, placeholder: "Add comment...", class: "form-control post-comment"%>
-        <div class ="input_group-append">
-          <%= f.submit "Add", class: "btn btn-success float-right" %>
-          <% end %>
-          </div>
-          </div>
-          </div>
+All users:
+<% @users.each do |f| %>
+<p><%= link_to f.username, user_path(f) %></p>
+<% end %>
