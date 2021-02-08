@@ -5,7 +5,7 @@ before_action :authenticate_user!
         @comment = Comment.new(comment_params)
         @comment.user_id = current_user.id if user_signed_in?
           if @comment.save
-            redirect_to home_index_path
+            redirect_back(fallback_location: root_path)
           else
             redirect_to current_user, flash: {success: "Comment was not created"}
           end
