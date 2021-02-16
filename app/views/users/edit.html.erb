@@ -2,7 +2,7 @@
   <div class="actions">
     <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
       <a class="nav-link active" data-toggle="pill" href="#v-pills-home" role="tab" aria-selected="true">Edit Profile</a>
-      
+
 
     </div>
   </div>
@@ -12,7 +12,10 @@
       <%= form_with model: current_user, local: true, html: {class: "form-horizontal form-edit-user"} do |f| %>
         <div class="form-group row">
           <div class="col-sm-3 col-form-label">
-            <img class="avatar" <% if @user.image_url %> <%= image_tag @user.image_url  %> <% end %>
+            <img class="avatar" <% if @user.image_url %> <%= image_tag @user.image_url  %>
+              <% else %>
+               <img class="avatar" src="#"> 
+                <% end %>
           </div>
           <div class="col-sm-9">
             <p class="username"><%=current_user.username %></p>

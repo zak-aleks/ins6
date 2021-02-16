@@ -10,12 +10,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = current_user.id if user_signed_in?
+    @post.user_id = current_user.id
     if @post.save
       redirect_to current_user, flash: { success: 'Post was created' }
     else
 
-      render :new, flash: { alert: "Image can't be blank" }
+      render :new, flash: { alert: "Post cannot be created" }
     end
   end
 
